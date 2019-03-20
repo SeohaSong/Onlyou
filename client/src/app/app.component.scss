@@ -1,0 +1,85 @@
+#main-frame {
+  &:before {
+    content: '';
+    padding-top: calc(200% + 32px);
+    display: block;
+  }
+  position: relative;
+  max-width: 400px;
+  min-width: 200px;
+  margin: 32px;
+  #main-frame-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .square {
+      &:before {
+        content: '';
+        padding-top: 100%;
+        display: block;
+      }
+      &.on {
+        cursor: pointer;
+        background: white;
+        box-shadow: 4px 4px 8px gray inset, -4px -4px 8px gray inset;
+      }
+      position: relative;
+      background: gray;
+      width: 100%;
+      border-radius: 4px;
+      .square-box-content {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+        left: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #default-input-img, #default-output-img, #pending-img {
+        width: 100px;
+        height: 100px;
+      }
+      #input-img, #output-img {
+        position: absolute;
+        width: 100%;
+        transition: 1s;
+      }
+      #pending-img {
+        animation-name: rotate;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
+    #output-box:not(.pending) #pending-img,
+    #input-box:not(.on) #default-input-img,
+    #output-box.pending #default-output-img,
+    #output-box.on #default-output-img {
+      display: none;
+    }
+    #output-box:not(.on) #output-img,
+    #input-box.on #input-img {
+      opacity: 0;
+    }
+  }
+}
+
+#main-form {
+  display: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
