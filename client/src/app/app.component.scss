@@ -1,14 +1,14 @@
 #main-frame {
   &:before {
     content: '';
-    padding-top: calc(200% + 32px);
+    padding-top: calc(200% + 16px);
     display: block;
   }
   position: relative;
   max-width: 400px;
   min-width: 200px;
   width: 100%;
-  margin: 32px;
+  margin: 16px;
   #main-frame-content {
     position: absolute;
     top: 0;
