@@ -28,11 +28,17 @@ export class AppComponent {
 
   controllDisplay() {
     let box = document.getElementById('main-frame')
-    if (window.innerHeight < window.innerWidth) box.classList.add('widescreen')
-    else box.classList.remove('widescreen')
-    if (window.innerHeight < box.clientHeight+128) {
-      box.style.width = (window.innerHeight-64)/2+'px'
-    } else box.style.width = '100%'
+    if (window.innerHeight < window.innerWidth) {
+      box.classList.add('widescreen')
+      if (window.innerHeight < box.clientHeight+128) {
+        box.style.width = (window.innerHeight-32)*2+'px'
+      } else box.style.width = '100%'
+    } else {
+      box.classList.remove('widescreen')
+      if (window.innerHeight < box.clientHeight+128) {
+        box.style.width = (window.innerHeight-64)/2+'px'
+      } else box.style.width = '100%'
+    }
   }
 
   upload() {
