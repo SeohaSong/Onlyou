@@ -1,3 +1,19 @@
+#main-frame.widescreen {
+  &:before {
+    content: '';
+    padding-top: calc(50% - 16px);
+    display: block;
+  }
+  max-width: 1200px;
+  min-width: 600px;
+  #main-frame-content {
+    flex-direction: unset;
+    .square {
+      width: calc(50% - 8px);
+    }
+  }
+}
+
 #main-frame {
   &:before {
     content: '';
