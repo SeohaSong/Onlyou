@@ -31,14 +31,14 @@ export class AppComponent {
     box.classList.add('loading')
     if (window.innerHeight < window.innerWidth) box.classList.add('widescreen')
     else box.classList.remove('widescreen')
-    if (window.innerHeight < box.clientHeight+128) {
-      if (box.classList.contains('widescreen')) {
-        box.style.width = (window.innerHeight-32)*2+'px'
-      } else {
-        box.style.width = (window.innerHeight-64)/2+'px'
-      }
-    } else box.style.width = '100%'
-    setTimeout(() => box.classList.remove('loading'), 200)
+    setTimeout(() => {
+      if (window.innerHeight < box.clientHeight+128) {
+        if (box.classList.contains('widescreen')) {
+          box.style.width = (window.innerHeight-32)*2+'px'
+        } else box.style.width = (window.innerHeight-64)/2+'px'
+      } else box.style.width = '100%'
+      box.classList.remove('loading')
+    }, 1000)
   }
 
   upload() {

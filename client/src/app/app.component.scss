@@ -73,7 +73,7 @@
 }
 #main-frame.loading {
   &:after {
-    content: 'Loading ...';
+    content: 'LOADING';
     color: white;
     position: fixed;
     top: 50%;
