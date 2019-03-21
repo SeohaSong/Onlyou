@@ -9,10 +9,8 @@ export class AppComponent {
   status = 'input';
 
   ngOnInit() {
-    window.addEventListener('load', () => {
-      this.controllDisplay()
-    })
-    window.addEventListener('resize', this.controllDisplay)
+    window.onload = this.controllDisplay
+    window.onresize = this.controllDisplay
   }
 
   upload() {
@@ -36,6 +34,7 @@ export class AppComponent {
   controllDisplay() {
     let box = document.getElementById('main-frame')
     let cutoff = box.clientHeight+100
+    console.log(cutoff)
     if (window.innerHeight < cutoff) {
       box.style.width = (window.innerHeight-128)/2+'px'
     } else {
