@@ -4,7 +4,6 @@
     padding-top: calc(200% + 16px);
     display: block;
   }
-  transition: 1s;
   position: relative;
   max-width: 400px;
   min-width: 150px;
@@ -73,7 +72,18 @@
   }
 }
 #main-frame.loading {
-  opacity: 0;
+  &:after {
+    content: 'Loading ...';
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 32px;
+    transform: translate(-50%, -50%);
+  }
+  #main-frame-content {
+    opacity: 0;
+  }
 }
 #main-frame.widescreen {
   &:before {

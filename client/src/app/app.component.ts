@@ -28,9 +28,10 @@ export class AppComponent {
 
   controllDisplay() {
     let box = document.getElementById('main-frame')
+    box.classList.add('loading')
     if (window.innerHeight < window.innerWidth) box.classList.add('widescreen')
     else box.classList.remove('widescreen')
-    let loop_id = setInterval(() => {
+    setTimeout(() => {
       if (window.innerHeight < box.clientHeight+128) {
         if (box.classList.contains('widescreen')) {
           box.style.width = (window.innerHeight-32)*2+'px'
@@ -38,11 +39,8 @@ export class AppComponent {
           box.style.width = (window.innerHeight-64)/2+'px'
         }
       } else box.style.width = '100%'
-    }, 100)
-    setTimeout(() => {
-      clearInterval(loop_id)
       box.classList.remove('loading')
-    }, 1000)
+    }, 200)
   }
 
   upload() {
