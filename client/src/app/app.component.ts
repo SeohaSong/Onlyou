@@ -39,7 +39,10 @@ export class AppComponent {
         }
       } else box.style.width = '100%'
     }, 100)
-    setTimeout(() => clearInterval(loop_id), 1000)
+    setTimeout(() => {
+      clearInterval(loop_id)
+      box.classList.remove('loading')
+    }, 1000)
   }
 
   upload() {
