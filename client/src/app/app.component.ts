@@ -17,11 +17,11 @@ export class AppComponent {
 
   ngOnInit() {
     window.addEventListener('load', () => {
-      this.controllDisplay()
       this.input_img = document.getElementById('input-img')
       this.output_img = document.getElementById('output-img')
       this.input_box = document.getElementById('input-box')
       this.output_box = document.getElementById('output-box')
+      this.controllDisplay()
     })
     window.onresize = this.controllDisplay
   }
@@ -29,16 +29,14 @@ export class AppComponent {
   controllDisplay() {
     let box = document.getElementById('main-frame')
     box.classList.add('loading')
-    if (window.innerHeight < window.innerWidth) box.classList.add('widescreen')
+    let cond = window.innerHeight < window.innerWidth
+    if (cond) box.classList.add('widescreen')
     else box.classList.remove('widescreen')
-    setTimeout(() => {
-      if (window.innerHeight < box.clientHeight+128) {
-        if (box.classList.contains('widescreen')) {
-          box.style.width = (window.innerHeight-32)*2+'px'
-        } else box.style.width = (window.innerHeight-64)/2+'px'
-      } else box.style.width = '100%'
-      box.classList.remove('loading')
-    }, 1000)
+    box.style.width = '100%'
+    cond = !cond && window.innerHeight < box.clientHeight+100
+    if (cond) box.style.width = (window.innerHeight-48)*2+16+'px'
+    if (cond) box.style.width = (window.innerHeight-64)/2+'px'
+    box.classList.remove('loading')
   }
 
   upload() {
