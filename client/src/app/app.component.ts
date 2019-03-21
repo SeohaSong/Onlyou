@@ -13,11 +13,11 @@ export class AppComponent {
   output_img: any
   input_box: any
   output_box: any
+  output_url: string
 
   ngOnInit() {
     window.addEventListener('load', () => {
       this.controllDisplay()
-      this.controllImage()
       this.input_img = document.getElementById('input-img')
       this.output_img = document.getElementById('output-img')
       this.input_box = document.getElementById('input-box')
@@ -34,9 +34,6 @@ export class AppComponent {
     } else {
       box.style.width = '100%'
     }
-  }
-  controllImage() {
-    console.log(111)
   }
 
   upload() {
@@ -56,7 +53,10 @@ export class AppComponent {
 
   download() {
     if (this.status == 'output') {
-      console.log(this.status)
+      var link = document.createElement("a");
+      link.download = 'output';
+      link.href = this.output_url;
+      link.click();
     }
   }
 
@@ -64,6 +64,9 @@ export class AppComponent {
     if (img.clientHeight > img.clientWidth) {
       img.style.width = 'auto'
       img.style.height = '100%'
+    } else {
+      img.style.width = '100%'
+      img.style.height = 'auto'
     }
   }
 
@@ -81,7 +84,8 @@ export class AppComponent {
           this.input_box.classList.add('pending')
           this.output_box.classList.add('pending')
           setTimeout(() => {
-            this.output_img.setAttribute('src', 'assets/img/test/output.png')
+            this.output_url = 'assets/img/test/output.png'
+            this.output_img.setAttribute('src', this.output_url)
             let loop_id = setInterval(() => {
               if (this.output_img.clientHeight > 0) {
                 clearInterval(loop_id)
@@ -95,7 +99,6 @@ export class AppComponent {
           }, 2000)
         }
       }, 100)
-
     }
   }
 }
