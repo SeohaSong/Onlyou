@@ -1,24 +1,20 @@
 <div id='main-frame'>
   <div id='main-frame-content'>
-    <div (click)='upload()' id='upload-btn'>
-      <div id='input-box' class='square on'>
-        <div class='square-box-content'>
-          <img id='default-input-img' src="assets/img/default/input.svg">
-          <img id='input-img'>
-        </div>
+    <div (click)='upload()' id='input-box' class='square on'>
+      <div class='square-box-content'>
+        <img id='default-input-img' src="assets/img/default/input.svg">
+        <img id='input-img'>
       </div>
     </div>
-    <div (click)='download()' id='download-btn'>
-      <div id='output-box' class='square'>
-        <div class='square-box-content'>
-          <img id='default-output-img' src="assets/img/default/output.svg">
-          <img id='pending-img' src="assets/img/default/pending.svg">
-          <img id='output-img'>
-        </div>
+    <div (click)='download()' id='output-box' class='square'>
+      <div class='square-box-content'>
+        <img id='default-output-img' src="assets/img/default/output.svg">
+        <img id='pending-img' src="assets/img/default/pending.svg">
+        <img id='output-img'>
       </div>
     </div>
   </div>
 </div>
 <div id='main-form'>
-  <input id='uploader' type="file">
+  <input id='uploader' type="file" accept="image/*">
 </div>
