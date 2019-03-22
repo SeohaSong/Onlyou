@@ -85,18 +85,21 @@
     opacity: 0;
   }
 }
-#main-frame.widescreen {
-  &:before {
-    content: '';
-    padding-top: calc((100% - 16px) / 2);
-    display: block;
-  }
-  max-width: 1200px;
-  min-width: 300px;
-  #main-frame-content {
-    flex-direction: unset;
-    .square {
-      width: calc(50% - 8px);
+
+@media screen and (min-aspect-ratio:1/1) {
+  #main-frame {
+    &:before {
+      content: '';
+      padding-top: calc((100% - 16px) / 2);
+      display: block;
+    }
+    max-width: 1200px;
+    min-width: 300px;
+    #main-frame-content {
+      flex-direction: unset;
+      .square {
+        width: calc(50% - 8px);
+      }
     }
   }
 }
