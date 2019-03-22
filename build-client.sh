@@ -9,3 +9,5 @@
 )
 cd $HOME_PATH/SEOHASONG/seohasong.github.io
 gitgit
+
+# ionic build --prod -- --base-href /www/
