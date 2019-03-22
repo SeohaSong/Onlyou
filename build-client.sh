@@ -1,13 +1,12 @@
 (
     cd client
-    ng build --base-href /Onlyou/
+    ionic build --prod -- --base-href /Onlyou/
     rm -rf $HOME_PATH/SEOHASONG/seohasong.github.io/Onlyou
-    mv dist/client $HOME_PATH/SEOHASONG/seohasong.github.io/Onlyou
-    rm -rf dist
+    mv www $HOME_PATH/SEOHASONG/seohasong.github.io/Onlyou
     cd ..
     gitgit
+    cd $HOME_PATH/SEOHASONG/seohasong.github.io
+    gitgit
+    seohasong
+    gitgit
 )
-cd $HOME_PATH/SEOHASONG/seohasong.github.io
-gitgit
-
-# ionic build --prod -- --base-href /www/
