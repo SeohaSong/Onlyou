@@ -12,7 +12,13 @@
 
 /* You can add global styles to this file, and also import other style files */
 body {
+  &:after {
+    content: 'LOADING';
+    color: white;
+    font-size: 32px;
+  }
   background: gray;
-  display: block;
-  margin: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

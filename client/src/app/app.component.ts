@@ -44,14 +44,14 @@ export class AppComponent {
   }
 
   controllDisplay() {
+    document.getElementById('content').classList.add('loading')
     let box = document.getElementById('main-frame')
-    box.classList.add('loading')
     box.style.width = '100%'
     let cond1 = window.innerHeight < window.innerWidth
     let cond2 = window.innerHeight < box.clientHeight+100
     if (cond1 && cond2) box.style.width = (window.innerHeight-48)*2+16+'px'
     if (!cond1 && cond2) box.style.width = (window.innerHeight-64)/2+'px'
-    box.classList.remove('loading')
+    document.getElementById('content').classList.remove('loading')
   }
 
   upload() {
